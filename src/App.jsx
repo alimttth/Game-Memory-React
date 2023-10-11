@@ -67,7 +67,12 @@ function App() {
     setItems(newItems)
     setTimeout(() => {
       setSelectedItemIds([])
+      setNumberClick2(40)
     }, 1000);}
+
+    if(numberClick2 === 0) {
+      return resetGame
+    }
 
 
   return (
