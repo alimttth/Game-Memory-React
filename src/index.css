@@ -9,4 +9,7 @@
 
 #root {
     min-height: 100vh;
+    background: #e7e7e7;
+    margin: 0px;
+    padding: 0%;
 }

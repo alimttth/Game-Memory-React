@@ -74,10 +74,10 @@ function App() {
       <div className='game-box'>
         <div className='time-move'>
           <div>
-            time:
+            زمان : 2:00
           </div>
           <div>
-            move:{numberClick2}
+            تعداد حرکت :  {numberClick2}
           </div>
         </div>
         <div className="memory-game">
