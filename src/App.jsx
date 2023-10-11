@@ -71,7 +71,7 @@ function App() {
     }, 1000);}
 
     if(numberClick2 === 0) {
-      return resetGame
+      resetGame()
     }
 
 
