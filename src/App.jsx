@@ -70,9 +70,9 @@ function App() {
       setNumberClick2(40)
     }, 1000);}
 
-    if(numberClick2 === 0) {
-      resetGame()
-    }
+    // if(numberClick2 === 0) {
+    //   resetGame()
+    // }
 
 
   return (
