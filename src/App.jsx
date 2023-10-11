@@ -37,18 +37,26 @@ function App() {
         setTime((prevSeconds) => prevSeconds - 1);
       }, 1000);
     }
-    return() => {
-      clearInterval(timer)
-    }
+    return () => {
+      clearInterval(timer);
+    };
   }, [isRunning]);
+
+  useEffect(() => {
+    if (time < 0 || numberClick2 < 0) {
+      losGame();
+    }
+  });
 
   const formatTime = () => {
     if (time > 0) {
-        const minutes = Math.floor(time / 60);
-        const remainingSeconds = time % 60;
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+      const minutes = Math.floor(time / 60);
+      const remainingSeconds = time % 60;
+      return `${minutes}:${
+        remainingSeconds < 10 ? "0" : ""
+      }${remainingSeconds}`;
     }
-}
+  };
   const generateRandom = () =>
     Array.from({ length: 16 })
       .map((_, i) => {
@@ -80,14 +88,20 @@ function App() {
         } else {
           setNumberClick(0);
         }
-
       }
     }
   };
 
+  const losGame = () => {
+    alert("اقا ریدی");
+    setIsRunning(false);
+    setNumberClick2(0);
+  };
+
   const resetGame = () => {
     setIsRunning(true);
-    setTime(120)
+    setTime(120);
+    setNumberClick2(40);
     const newItems = generateRandom();
     setSelectedItemIds(newItems.map((i) => i.id));
     setItems(newItems);
@@ -100,7 +114,7 @@ function App() {
   return (
     <div className="game-box">
       <div className="time-move">
-        <div>زمان : {time > 0 ? formatTime() : '0:00'}</div>
+        <div>زمان : {time > 0 ? formatTime() : "0:00"}</div>
         <div>تعداد حرکت : {numberClick2}</div>
       </div>
       <div className="memory-game">
