@@ -7,6 +7,7 @@ import image5Url from "../src/assets/image-5.png";
 import image6Url from "../src/assets/image-6.png";
 import image7Url from "../src/assets/image-7.png";
 import image8Url from "../src/assets/image-8.png";
+import Swal from "sweetalert2";
 
 const images = [
   image1Url,
@@ -29,9 +30,10 @@ function App() {
   const [time, setTime] = useState(120);
   const [isRunning, setIsRunning] = useState(false);
 
+  
+
   useEffect(() => {
     let timer = null;
-
     if (isRunning) {
       timer = setInterval(() => {
         setTime((prevSeconds) => prevSeconds - 1);
@@ -91,12 +93,21 @@ function App() {
       }
     }
   };
+  function showAlert() {
+    Swal.fire({
+      title: 'باختی',
+      text: 'زمان یا تعداد کلیک تمام شد',
+      icon: 'error',
+      confirmButtonText: 'تایید'
+    });
+  }
 
   const losGame = () => {
-    alert("اقا ریدی");
+    showAlert()
     setIsRunning(false);
     setNumberClick2(0);
   };
+
 
   const resetGame = () => {
     setIsRunning(true);
