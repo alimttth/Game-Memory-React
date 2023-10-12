@@ -9,7 +9,8 @@ import image7Url from "../src/assets/image-7.png";
 import image8Url from "../src/assets/image-8.png";
 import Swal from "sweetalert2";
 import useDarkMode from "./useDarkMode/useDarkMode";
-import { FaMoon, FaRegSun } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
+import { RxSun } from "react-icons/rx"
 
 const images = [
   image1Url,
@@ -137,7 +138,7 @@ function App() {
     >
       <div className="swichTheme" onClick={toggleIcons}>
         {isSun && (
-          <FaRegSun onClick={toggleTheme} className="icon_light_mode" />
+          <RxSun onClick={toggleTheme} className="icon_light_mode" />
         )}
         {isMoon && <FaMoon onClick={toggleTheme} className="icon_dark_mode" />}
       </div>
