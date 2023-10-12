@@ -99,6 +99,7 @@ function App() {
         }
       }
     }
+    // این برای آلرت وین بازیه
     console.log(selectedItemIds);
     if (selectedItemIds.length >= 15) {
       console.log("win");
@@ -110,9 +111,10 @@ function App() {
       title: "بردی",
       text: "حافطت خیلی خوبه احسنت",
       icon: "success",
-      confirmButtonText: "باریک"
+      confirmButtonText: "باریک",
     });
   }
+  //وین بازی تموم اینجا
   function showAlert() {
     Swal.fire({
       title: "باختی",
