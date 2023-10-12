@@ -100,7 +100,7 @@ function App() {
       }
     }
     // این برای آلرت وین بازیه 
-    if (selectedItemIds.length >= 15) {
+    if (selectedItemIds.length == 15) {
       console.log("win");
       showWin();
     }
