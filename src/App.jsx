@@ -53,7 +53,7 @@ function App() {
   }, [isRunning]);
 
   useEffect(() => {
-    if (time < 0 || numberClick2 < 0) {
+    if (time < 0 || numberClick2 <= 0) {
       losGame();
     }
   });
@@ -93,8 +93,6 @@ function App() {
             setSelectedItemIds(selectedItemIds.filter((i) => i != lastItemId));
             setNumberClick(0);
           }, 1000);
-
-          console.log(numberClick);
         } else {
           setNumberClick(0);
         }
@@ -106,7 +104,7 @@ function App() {
       title: "باختی",
       text: "زمان یا تعداد کلیک تمام شد",
       icon: "error",
-      confirmButtonText: "تایید",
+      confirmButtonText: "حله",
     });
   }
 
