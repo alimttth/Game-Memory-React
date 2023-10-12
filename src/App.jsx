@@ -10,7 +10,7 @@ import image8Url from "../src/assets/image-8.png";
 import Swal from "sweetalert2";
 import useDarkMode from "./useDarkMode/useDarkMode";
 import { FaMoon } from "react-icons/fa";
-import { RxSun } from "react-icons/rx"
+import { RxSun } from "react-icons/rx";
 
 const images = [
   image1Url,
@@ -99,7 +99,20 @@ function App() {
         }
       }
     }
+    console.log(selectedItemIds);
+    if (selectedItemIds.length >= 15) {
+      console.log("win");
+      showWin();
+    }
   };
+  function showWin() {
+    Swal.fire({
+      title: "بردی",
+      text: "حافطت خیلی خوبه احسنت",
+      icon: "success",
+      confirmButtonText: "باریک"
+    });
+  }
   function showAlert() {
     Swal.fire({
       title: "باختی",
@@ -137,9 +150,7 @@ function App() {
       }}
     >
       <div className="swichTheme" onClick={toggleIcons}>
-        {isSun && (
-          <RxSun onClick={toggleTheme} className="icon_light_mode" />
-        )}
+        {isSun && <RxSun onClick={toggleTheme} className="icon_light_mode" />}
         {isMoon && <FaMoon onClick={toggleTheme} className="icon_dark_mode" />}
       </div>
       <div
