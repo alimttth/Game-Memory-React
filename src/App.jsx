@@ -8,6 +8,8 @@ import image6Url from "../src/assets/image-6.png";
 import image7Url from "../src/assets/image-7.png";
 import image8Url from "../src/assets/image-8.png";
 import Swal from "sweetalert2";
+import useDarkMode from "./useDarkMode/useDarkMode";
+import { FaMoon, FaRegSun } from "react-icons/fa";
 
 const images = [
   image1Url,
@@ -29,8 +31,14 @@ function App() {
   const [numberClick2, setNumberClick2] = useState(40);
   const [time, setTime] = useState(120);
   const [isRunning, setIsRunning] = useState(false);
+  const [theme, toggleTheme] = useDarkMode();
+  const [isSun, setIsSun] = useState(true);
+  const [isMoon, setIsMoon] = useState(false);
 
-  
+  const toggleIcons = () => {
+    setIsSun(!isSun);
+    setIsMoon(!isMoon);
+  };
 
   useEffect(() => {
     let timer = null;
@@ -95,19 +103,18 @@ function App() {
   };
   function showAlert() {
     Swal.fire({
-      title: 'باختی',
-      text: 'زمان یا تعداد کلیک تمام شد',
-      icon: 'error',
-      confirmButtonText: 'تایید'
+      title: "باختی",
+      text: "زمان یا تعداد کلیک تمام شد",
+      icon: "error",
+      confirmButtonText: "تایید",
     });
   }
 
   const losGame = () => {
-    showAlert()
+    showAlert();
     setIsRunning(false);
     setNumberClick2(0);
   };
-
 
   const resetGame = () => {
     setIsRunning(true);
@@ -123,25 +130,59 @@ function App() {
   };
 
   return (
-    <div className="game-box">
-      <div className="time-move">
-        <div>زمان : {time > 0 ? formatTime() : "0:00"}</div>
-        <div>تعداد حرکت : {numberClick2}</div>
+    <div
+      id="root"
+      style={{
+        background: theme === "dark" ? "#1d3557" : "#e9e9e9",
+        transition: ".2s all",
+      }}
+    >
+      <div className="swichTheme" onClick={toggleIcons}>
+        {isSun && (
+          <FaRegSun onClick={toggleTheme} className="icon_light_mode" />
+        )}
+        {isMoon && <FaMoon onClick={toggleTheme} className="icon_dark_mode" />}
       </div>
-      <div className="memory-game">
-        {items.map((item, i) => (
-          <Item
-            key={item.id}
-            index={i + 1}
-            image={item.image}
-            onClick={() => handleClick(item)}
-            isShow={selectedItemIds.includes(item.id)}
-          />
-        ))}
+      <div
+        className="game-box"
+        style={{
+          background: theme === "dark" ? "#0d1321" : "#ffffff",
+          transition: ".2s all",
+        }}
+      >
+        <div className="time-move">
+          <div
+            style={{
+              color: theme === "dark" ? "#ffff" : "#0d1321",
+              transition: ".2s all",
+            }}
+          >
+            زمان : {time > 0 ? formatTime() : "0:00"}
+          </div>
+          <div
+            style={{
+              color: theme === "dark" ? "#ffff" : "#0d1321",
+              transition: ".2s all",
+            }}
+          >
+            تعداد حرکت : {numberClick2}
+          </div>
+        </div>
+        <div className="memory-game">
+          {items.map((item, i) => (
+            <Item
+              key={item.id}
+              index={i + 1}
+              image={item.image}
+              onClick={() => handleClick(item)}
+              isShow={selectedItemIds.includes(item.id)}
+            />
+          ))}
+        </div>
+        <button className="btn-reset" onClick={resetGame}>
+          شروع دوباره
+        </button>
       </div>
-      <button className="btn-reset" onClick={resetGame}>
-        شروع دوباره
-      </button>
     </div>
   );
 }
