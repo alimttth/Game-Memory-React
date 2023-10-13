@@ -104,6 +104,7 @@ function App() {
     //comment the win
     if (selectedItemIds.length == 15) {
       showWin();
+      setIsRunning(false)
     }
   };
   function showWin() {
