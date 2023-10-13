@@ -10,7 +10,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
   gap: 30px;
   width: 550px;
   height: 691px;
@@ -39,7 +38,6 @@
   border-radius: 5px;
   overflow: hidden;
   animation: 2s hideCard linear;
-  /*از اینجا*/
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: transform 0.5s;
@@ -47,15 +45,6 @@
 .memory-game__item.flipped {
   transform: rotateY(180deg);
 }
-  /*تا اینجا*/
-/*@keyframes hideCard{*/
-/*  0%, 70%{*/
-/*    transform: rotateY(0);*/
-/*  }*/
-/*  100%{*/
-/*    transform: rotateY(180deg);*/
-/*  }*/
-/*}*/
 
 .memory-game__item img {
   width: 100%;
@@ -75,7 +64,6 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
-  
 }
 
 .btn-reset {
@@ -90,7 +78,6 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
-  
 }
 .btn_stop_game {
   width: 50px;
@@ -118,4 +105,29 @@
   height: 30px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .game-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 450px;
+    height: 591px;
+    border-radius: 5px;
+    position: absolute;
+    left: 100px;
+  }
+  .memory-game__item {
+    width: 85px;
+    height: 85px;
+  }
+  .time-move {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    font-size: 25px;
+  }
 }
