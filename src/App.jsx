@@ -12,6 +12,7 @@ import useDarkMode from "./useDarkMode/useDarkMode";
 import { FaMoon } from "react-icons/fa";
 import { RxSun } from "react-icons/rx";
 import { BsFillStopCircleFill } from "react-icons/bs";
+import { VscDebugStart } from "react-icons/vsc";
 
 const images = [
   image1Url,
@@ -36,7 +37,7 @@ function App() {
   const [theme, toggleTheme] = useDarkMode();
   const [isSun, setIsSun] = useState(true);
   const [isMoon, setIsMoon] = useState(false);
-  const [startGame,setStartGame] = useState(false) // state start
+  const [startGame, setStartGame] = useState(false); // state start
 
   const toggleIcons = () => {
     setIsSun(!isSun);
@@ -83,7 +84,8 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0  && startGame) { //startGame = state startGame 
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && startGame) {
+      //startGame = state startGame
       if (!selectedItemIds.includes(item.id)) {
         setNumberClick2(numberClick2 - 1);
         setSelectedItemIds([...selectedItemIds, item.id]);
@@ -106,7 +108,7 @@ function App() {
     //comment the win
     if (selectedItemIds.length == 15) {
       showWin();
-      setIsRunning(false)
+      setIsRunning(false);
     }
   };
   function showWin() {
@@ -114,7 +116,7 @@ function App() {
       title: "بردی",
       text: "حافطت خیلی خوبه احسنت",
       icon: "success",
-      confirmButtonText: "باریک"
+      confirmButtonText: "باریک",
     });
   }
   function showAlert() {
@@ -133,7 +135,7 @@ function App() {
   };
 
   const resetGame = () => {
-    setStartGame(true) // اینجا هم true میکنی
+    setStartGame(true); // اینجا هم true میکنی
     setIsRunning(true);
     setTime(120);
     setNumberClick2(40);
@@ -147,8 +149,11 @@ function App() {
   };
 
   const stopGame = () => {
-    setIsRunning(false)
-  }
+    setIsRunning(false);
+  };
+  const startGamee = () => {
+    setIsRunning(true);
+  };
 
   return (
     <div
@@ -199,12 +204,15 @@ function App() {
           ))}
         </div>
         <div className="btn">
-        <button className="btn_stop_game" onClick={stopGame}>
-          <BsFillStopCircleFill className="icon-stop" />
-        </button>
-        <button className="btn-reset" onClick={resetGame}>
-          شروع دوباره
-        </button>
+          <button className="btn_stop_game" onClick={startGamee}>
+            <VscDebugStart className="icon-stop" />
+          </button>
+          <button className="btn_stop_game" onClick={stopGame}>
+            <BsFillStopCircleFill className="icon-stop" />
+          </button>
+          <button className="btn-reset" onClick={resetGame}>
+            شروع دوباره
+          </button>
         </div>
       </div>
     </div>
