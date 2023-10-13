@@ -81,10 +81,12 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0) {
-      setNumberClick2(numberClick2 - 1);
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id!==selectedItemIds) {
+      if (!selectedItemIds.includes(item.id)) {
+        setNumberClick2(numberClick2 - 1);
+        setSelectedItemIds([...selectedItemIds, item.id]);
+      }
       setNumberClick(numberClick + 1);
-      setSelectedItemIds([...selectedItemIds, item.id]);
       if (selectedItemIds.length % 2 !== 0) {
         const lastItemId = selectedItemIds[selectedItemIds.length - 1];
         const lastItem = items.find((item) => item.id === lastItemId);
