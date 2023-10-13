@@ -13,6 +13,7 @@ import { FaMoon } from "react-icons/fa";
 import { RxSun } from "react-icons/rx";
 import { BsFillStopCircleFill } from "react-icons/bs";
 import { VscDebugStart } from "react-icons/vsc";
+import { RiRestartFill } from "react-icons/ri"
 
 const images = [
   image1Url,
@@ -211,6 +212,7 @@ function App() {
             <BsFillStopCircleFill className="icon-stop" />
           </button>
           <button className="btn-reset" onClick={resetGame}>
+            <RiRestartFill />
             شروع دوباره
           </button>
         </div>
