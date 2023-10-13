@@ -107,7 +107,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width:  580px) {
   .game-box {
     display: flex;
     flex-direction: column;
@@ -118,7 +118,7 @@
     height: 591px;
     border-radius: 5px;
     position: absolute;
-    left: 100px;
+    left: 10px;
   }
   .memory-game__item {
     width: 85px;
