@@ -11,6 +11,9 @@ import Swal from "sweetalert2";
 import useDarkMode from "./useDarkMode/useDarkMode";
 import { FaMoon } from "react-icons/fa";
 import { RxSun } from "react-icons/rx";
+import { BsFillStopCircleFill } from "react-icons/bs";
+import { VscDebugStart } from "react-icons/vsc";
+import { RiRestartFill } from "react-icons/ri"
 
 const images = [
   image1Url,
@@ -35,6 +38,7 @@ function App() {
   const [theme, toggleTheme] = useDarkMode();
   const [isSun, setIsSun] = useState(true);
   const [isMoon, setIsMoon] = useState(false);
+  const [startGame, setStartGame] = useState(false); // state start
 
   const toggleIcons = () => {
     setIsSun(!isSun);
@@ -81,10 +85,13 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0) {
-      setNumberClick2(numberClick2 - 1);
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && startGame) {
+      //startGame = state startGame
+      if (!selectedItemIds.includes(item.id)) {
+        setNumberClick2(numberClick2 - 1);
+        setSelectedItemIds([...selectedItemIds, item.id]);
+      }
       setNumberClick(numberClick + 1);
-      setSelectedItemIds([...selectedItemIds, item.id]);
       if (selectedItemIds.length % 2 !== 0) {
         const lastItemId = selectedItemIds[selectedItemIds.length - 1];
         const lastItem = items.find((item) => item.id === lastItemId);
@@ -99,22 +106,20 @@ function App() {
         }
       }
     }
-    // این برای آلرت وین بازیه 
+    //comment the win
     if (selectedItemIds.length == 15) {
-      console.log("win");
       showWin();
+      setIsRunning(false);
     }
-    console.log(selectedItemIds);
   };
   function showWin() {
     Swal.fire({
       title: "بردی",
       text: "حافطت خیلی خوبه احسنت",
       icon: "success",
-      confirmButtonText: "باریک"
+      confirmButtonText: "باریک",
     });
   }
-  //وین بازی تموم اینجا
   function showAlert() {
     Swal.fire({
       title: "باختی",
@@ -131,6 +136,7 @@ function App() {
   };
 
   const resetGame = () => {
+    setStartGame(true); // اینجا هم true میکنی
     setIsRunning(true);
     setTime(120);
     setNumberClick2(40);
@@ -141,6 +147,13 @@ function App() {
       setSelectedItemIds([]);
       setNumberClick2(40);
     }, 1000);
+  };
+
+  const stopGame = () => {
+    setIsRunning(false);
+  };
+  const startGamee = () => {
+    setIsRunning(true);
   };
 
   return (
@@ -191,9 +204,18 @@ function App() {
             />
           ))}
         </div>
-        <button className="btn-reset" onClick={resetGame}>
-          شروع دوباره
-        </button>
+        <div className="btn">
+          <button className="btn_stop_game" onClick={startGamee}>
+            <VscDebugStart className="icon-stop" />
+          </button>
+          <button className="btn_stop_game" onClick={stopGame}>
+            <BsFillStopCircleFill className="icon-stop" />
+          </button>
+          <button className="btn-reset" onClick={resetGame}>
+            <RiRestartFill />
+            شروع دوباره
+          </button>
+        </div>
       </div>
     </div>
   );
