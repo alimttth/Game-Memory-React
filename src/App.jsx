@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import useDarkMode from "./useDarkMode/useDarkMode";
 import { FaMoon } from "react-icons/fa";
 import { RxSun } from "react-icons/rx";
+import { BsFillStopCircleFill } from "react-icons/bs";
 
 const images = [
   image1Url,
@@ -82,7 +83,7 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds && startGame) { //startGame = state startGame 
+    if (numberClick < 2 && numberClick2 > 0 && time > 0  && startGame) { //startGame = state startGame 
       if (!selectedItemIds.includes(item.id)) {
         setNumberClick2(numberClick2 - 1);
         setSelectedItemIds([...selectedItemIds, item.id]);
@@ -193,9 +194,14 @@ function App() {
             />
           ))}
         </div>
+        <div className="btn">
+        <button className="btn_stop_game">
+          <BsFillStopCircleFill className="icon-stop" />
+        </button>
         <button className="btn-reset" onClick={resetGame}>
           شروع دوباره
         </button>
+        </div>
       </div>
     </div>
   );
