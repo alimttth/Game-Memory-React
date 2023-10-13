@@ -157,7 +157,6 @@ function App() {
       setIsRunning(true);
     }
   };
-
   return (
     <div
       id="root"
