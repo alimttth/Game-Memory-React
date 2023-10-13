@@ -151,6 +151,7 @@ function App() {
 
   const stopGame = () => {
     setIsRunning(false);
+    
   };
   const startGamee = () => {
     if(startGame){
