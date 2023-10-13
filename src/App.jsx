@@ -165,7 +165,7 @@ function App() {
       style={{
         background: theme === "dark" ? "#1d3557" : "#e9e9e9",
         transition: ".2s all",
-        width: "100%",
+        width: "1000%",
         height: "100vh",
       }}
     >
