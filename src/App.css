@@ -107,7 +107,7 @@
   cursor: pointer;
 }
 
-@media (max-width:  580px) {
+@media (max-width: 580px) {
   .game-box {
     display: flex;
     flex-direction: column;
@@ -123,11 +123,16 @@
   .memory-game__item {
     width: 85px;
     height: 85px;
+    color: #f2c94c;
   }
   .time-move {
     display: flex;
     justify-content: space-between;
     width: 350px;
     font-size: 25px;
+  }
+  #root {
+    margin: 0%;
+    padding: 0%;
   }
 }
