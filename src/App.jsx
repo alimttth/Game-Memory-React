@@ -82,7 +82,7 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds && startGame) { //comment in if !== اینجا چی نوشتی شرط stratgame میزاری اینجا
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds && startGame) { //startGame = state startGame 
       if (!selectedItemIds.includes(item.id)) {
         setNumberClick2(numberClick2 - 1);
         setSelectedItemIds([...selectedItemIds, item.id]);
