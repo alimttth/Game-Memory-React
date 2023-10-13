@@ -35,6 +35,7 @@ function App() {
   const [theme, toggleTheme] = useDarkMode();
   const [isSun, setIsSun] = useState(true);
   const [isMoon, setIsMoon] = useState(false);
+  const [startGame,setStartGame] = useState(false) // state start
 
   const toggleIcons = () => {
     setIsSun(!isSun);
@@ -81,7 +82,7 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds) { //comment in if !==
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds && startGame) { //comment in if !== اینجا چی نوشتی شرط stratgame میزاری اینجا
       if (!selectedItemIds.includes(item.id)) {
         setNumberClick2(numberClick2 - 1);
         setSelectedItemIds([...selectedItemIds, item.id]);
@@ -131,6 +132,7 @@ function App() {
   };
 
   const resetGame = () => {
+    setStartGame(true) // اینجا هم true میکنی
     setIsRunning(true);
     setTime(120);
     setNumberClick2(40);
