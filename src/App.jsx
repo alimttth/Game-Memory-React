@@ -146,6 +146,10 @@ function App() {
     }, 1000);
   };
 
+  const stopGame = () => {
+    setIsRunning(false)
+  }
+
   return (
     <div
       id="root"
@@ -195,7 +199,7 @@ function App() {
           ))}
         </div>
         <div className="btn">
-        <button className="btn_stop_game">
+        <button className="btn_stop_game" onClick={stopGame}>
           <BsFillStopCircleFill className="icon-stop" />
         </button>
         <button className="btn-reset" onClick={resetGame}>

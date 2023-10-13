@@ -80,6 +80,7 @@
   background: #f2c94c;
   border: none;
   font-size: 24px;
+  cursor: pointer;
 }
 .btn_stop_game {
   width: 50px;
@@ -90,6 +91,7 @@
   background: #f2c94c;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 .icon-stop {
   width: 25px;
@@ -99,9 +101,11 @@
   width: 100px;
   height: 30px;
   margin-top: 20px;
+  cursor: pointer;
 }
 .icon_light_mode {
   width: 100px;
   height: 30px;
   margin-top: 20px;
+  cursor: pointer;
 }
