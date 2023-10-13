@@ -13,7 +13,7 @@ import { FaMoon } from "react-icons/fa";
 import { RxSun } from "react-icons/rx";
 import { BsFillStopCircleFill } from "react-icons/bs";
 import { VscDebugStart } from "react-icons/vsc";
-import { RiRestartFill } from "react-icons/ri"
+import { RiRestartFill } from "react-icons/ri";
 
 const images = [
   image1Url,
@@ -151,17 +151,22 @@ function App() {
 
   const stopGame = () => {
     setIsRunning(false);
+    setStartGame(false);
   };
   const startGamee = () => {
-    setIsRunning(true);
+    if (time !== 120) {
+      setIsRunning(true);
+      setStartGame(true);
+    }
   };
-
   return (
     <div
       id="root"
       style={{
         background: theme === "dark" ? "#1d3557" : "#e9e9e9",
         transition: ".2s all",
+        width: "100%",
+        height: "100vh",
       }}
     >
       <div className="swichTheme" onClick={toggleIcons}>
@@ -177,6 +182,7 @@ function App() {
       >
         <div className="time-move">
           <div
+            className={`time ${time <= 6 ? "salam" : "khodafez"}`}
             style={{
               color: theme === "dark" ? "#ffff" : "#0d1321",
               transition: ".2s all",

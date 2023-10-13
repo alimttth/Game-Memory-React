@@ -3,13 +3,12 @@
   src: url("../public/font/Lalezar-Font/TTF/Lalezar-Regular.ttf");
 }
 
-
 * {
   font-family: Lalezar;
 }
 
-body {
-  margin: 0%;
-  padding: 0%;
+body, html {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
