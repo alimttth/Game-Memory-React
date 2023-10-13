@@ -11,3 +11,4 @@ const Item = ({ index, image, isShow, onClick,reset }) => {
 export default Item;
 
 //branch develop
+//salam az branch develop
