@@ -151,12 +151,12 @@ function App() {
 
   const stopGame = () => {
     setIsRunning(false);
-    setStartGame(false)
+    setStartGame(false);
   };
   const startGamee = () => {
-    if(time !== 120) {
+    if (time !== 120) {
       setIsRunning(true);
-      setStartGame(true)
+      setStartGame(true);
     }
   };
   return (
@@ -182,6 +182,7 @@ function App() {
       >
         <div className="time-move">
           <div
+            className={`time ${time <= 6 ? "salam" : "khodafez"}`}
             style={{
               color: theme === "dark" ? "#ffff" : "#0d1321",
               transition: ".2s all",
