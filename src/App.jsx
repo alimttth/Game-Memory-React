@@ -81,7 +81,7 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id!==selectedItemIds) {
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds) {
       if (!selectedItemIds.includes(item.id)) {//این شرط اضافه شد.....
         setNumberClick2(numberClick2 - 1);
         setSelectedItemIds([...selectedItemIds, item.id]);
