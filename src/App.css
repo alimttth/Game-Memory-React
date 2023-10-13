@@ -1,6 +1,4 @@
 #root {
-  min-height: 100vh;
-  background: #e9e9e9;
   margin: 0%;
   padding: 0%;
 }
@@ -130,10 +128,5 @@
     width: 350px;
     font-size: 25px;
   }
-  #root {
-    margin: 0%;
-    padding: 0%;
-    width: 100vh;
-    height: 100vh;
-  }
+
 }
