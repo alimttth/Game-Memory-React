@@ -151,10 +151,12 @@ function App() {
 
   const stopGame = () => {
     setIsRunning(false);
+    setStartGame(false)
   };
   const startGamee = () => {
-    if(startGame){
+    if(time !== 120) {
       setIsRunning(true);
+      setStartGame(true)
     }
   };
   return (
