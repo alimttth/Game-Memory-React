@@ -101,19 +101,19 @@ function App() {
         }
       }
     }
-    // این برای آلرت وین بازیه
-    console.log(selectedItemIds);
-    if (selectedItemIds.length >= 15) {
+    // این برای آلرت وین بازیه 
+    if (selectedItemIds.length == 15) {
       console.log("win");
       showWin();
     }
+    console.log(selectedItemIds);
   };
   function showWin() {
     Swal.fire({
       title: "بردی",
       text: "حافطت خیلی خوبه احسنت",
       icon: "success",
-      confirmButtonText: "باریک",
+      confirmButtonText: "باریک"
     });
   }
   //وین بازی تموم اینجا
