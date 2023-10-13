@@ -13,7 +13,7 @@ import { FaMoon } from "react-icons/fa";
 import { RxSun } from "react-icons/rx";
 import { BsFillStopCircleFill } from "react-icons/bs";
 import { VscDebugStart } from "react-icons/vsc";
-import { RiRestartFill } from "react-icons/ri"
+import { RiRestartFill } from "react-icons/ri";
 
 const images = [
   image1Url,
@@ -153,7 +153,9 @@ function App() {
     setIsRunning(false);
   };
   const startGamee = () => {
-    setIsRunning(true);
+    if(startGame){
+      setIsRunning(true);
+    }
   };
 
   return (
