@@ -182,7 +182,7 @@ function App() {
       >
         <div className="time-move">
           <div
-            className={`time ${time <= 6 ? "salam" : "khodafez"}`}
+            className={`time ${time <= 10 ? "salam" : "khodafez"}`}
             style={{
               color: theme === "dark" ? "#ffff" : "#0d1321",
               transition: ".2s all",
