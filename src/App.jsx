@@ -81,8 +81,8 @@ function App() {
   const [items, setItems] = useState(generateRandom);
 
   const handleClick = (item) => {
-    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds) {
-      if (!selectedItemIds.includes(item.id)) {//این شرط اضافه شد.....
+    if (numberClick < 2 && numberClick2 > 0 && time > 0 && item.id !== selectedItemIds) { //comment in if !==
+      if (!selectedItemIds.includes(item.id)) {
         setNumberClick2(numberClick2 - 1);
         setSelectedItemIds([...selectedItemIds, item.id]);
       }
@@ -101,12 +101,10 @@ function App() {
         }
       }
     }
-    // این برای آلرت وین بازیه 
+    //comment the win
     if (selectedItemIds.length == 15) {
-      console.log("win");
       showWin();
     }
-    console.log(selectedItemIds);
   };
   function showWin() {
     Swal.fire({
@@ -116,7 +114,6 @@ function App() {
       confirmButtonText: "باریک"
     });
   }
-  //وین بازی تموم اینجا
   function showAlert() {
     Swal.fire({
       title: "باختی",
