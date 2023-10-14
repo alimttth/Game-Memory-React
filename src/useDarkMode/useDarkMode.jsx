@@ -5,20 +5,20 @@ const useDarkMode = () => {
 
   const toggleTheme = () => {
     if (theme === 'light') {
-      localStorage.setItem('theme', 'dark')
+      // localStorage.setItem('theme', 'dark')
       setTheme('dark')      
     } else {
-      localStorage.setItem('theme', 'light')
+      // localStorage.setItem('theme', 'light')
       setTheme('light')
     }
   }
 
-  useEffect(() => {
-    const hameyeTheme = localStorage.getItem('theme')
-    if (hameyeTheme) {
-      setTheme(hameyeTheme);
-    }
-  }, [])
+  // useEffect(() => {
+  //   const hameyeTheme = localStorage.getItem('theme')
+  //   if (hameyeTheme) {
+  //     setTheme(hameyeTheme);
+  //   }
+  // }, [])
 
   return [theme, toggleTheme];
 };
