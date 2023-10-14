@@ -179,6 +179,7 @@ function App() {
           background: theme === "dark" ? "#0d1321" : "#ffffff",
           transition: ".2s all",
         }}
+
       >
         <div className="time-move">
           <div
