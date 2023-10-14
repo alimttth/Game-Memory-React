@@ -40,6 +40,9 @@
   transform-style: preserve-3d;
   transition: transform 0.5s;
 }
+.memory-game__item:hover {
+  transform: rotate(5deg);
+}
 .memory-game__item.flipped {
   transform: rotateY(180deg);
 }
@@ -103,6 +106,19 @@
   height: 30px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.larze {
+  animation: vibrate 0.3s infinite alternate;
+}
+
+@keyframes vibrate {
+  0% {
+      transform: translateX(0px);
+  }
+  100% {
+      transform: translateX(5px);
+  }
 }
 
 @media (max-width: 750px) {

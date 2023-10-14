@@ -208,6 +208,7 @@ function App() {
               image={item.image}
               onClick={() => handleClick(item)}
               isShow={selectedItemIds.includes(item.id)}
+              time={time}
             />
           ))}
         </div>
